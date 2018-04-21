@@ -1,21 +1,34 @@
 {% extends 'blog/base.html' %}
 
-
-
 {% block content %}
-    <div class="jumbotron">
-        <h2>Please Login:</h2>
-        <h3>(Must be SuperUser, please check with the site admin)</h3>
 
+    <section>
+    <div class="container">
+    <div class="mycontainer">
         {% if form.errors %}
-            <p> Your username and password didn't match! Please try again</p>
+                <p> Your username and password didn't match! Please try again</p>
         {% endif %}
+		<form class="form-signin text-center" action="{% url 'login' %}" method="POST">
+           {% csrf_token %}
+            <div class="input-group mb-2">
+            <p><div class="input-group-prepend">
+			<span class="input-group-text"><i class="far fa-user"></i></span>
+                 <label for="id_username"></label> <input class="form-control" id="id_username" maxlength="254" name="username" type="text" placeholder="Username" required autofocus />
+                </div>
+                </p>
+            </div>
+            <div class="input-group mb-2">
+            <p>         <div class="input-group-prepend">
+			<span class="input-group-text"><i class="fas fa-key"></i></span>
+    <label for="id_password"></label> <input class="form-control" id="id_password" name="password" type="password" placeholder="Password" required autofocus />
+            </div>
+                </p>
+             </div>
 
-        <form action="{% url 'login' %}" method="POST">
-            {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" class='btn btn-primary' value="Login">
-                <input type="hidden" name='next' value="{{ next }}">
+            <input  type="submit" class='btn btn-lg btn-info btn-block mt-4' value="Login">
+      <input type="hidden" name='next' value="{{ next }}">
         </form>
     </div>
+		</div>
+    </section>
 {% endblock %}

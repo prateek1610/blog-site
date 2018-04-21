@@ -1,26 +1,60 @@
 {% extends "blog/base.html" %}
 {% load bootstrap3 %}
 {% block content %}
-<div class="container">
- <div class="jumbotron">
-    {% if registered %}
+<section>
+    <div class="container">
+    <div class="mycontainer">
+        {% if registered %}
 
         <h1>Thank you for registering</h1>
 
-        
         {% else %}
-        <h1>Register Here!</h1>
-        <h3>Fill out the form:</h3>
+        <h1 class="h3 mb-4 font-weight-normal">Register Here!</h1>
+        <h3 class="h3 mb-4 font-weight-normal">Fill out the form:</h3>
 
 <div class="container">
 <form class="form-horizontal" method="POST">
     {% csrf_token %}
-    {% bootstrap_form user_form %}
-    {% bootstrap_form profile_form %}
-    <input type="Submit" class="btn btn-primary"  value="Submit">
+    <div class="form-group">
+        <div class="input-group-prepend">
+			<span class="input-group-text"><i class="far fa-user"></i></span>
+        <label class="control-label" for="id_username"></label>
+        <input class="form-control" id="id_username" maxlength="100" name="username" placeholder="enter username..." required="required" title="" type="text" />
+        </div>
+        </div>
+    <div class="form-group">
+        <div class="input-group-prepend">
+			<span class="input-group-text"><i class="far fa-envelope"></i></span>
+        <label class="control-label" for="id_email"></label>
+        <input class="form-control" id="id_email" maxlength="254" name="email" placeholder="Email address" title="" type="email" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group-prepend">
+			<span class="input-group-text"><i class="fas fa-key"></i></span>
+        <label class="control-label" for="id_password"></label>
+        <input class="form-control" id="id_password" name="password" placeholder="Password" required="required" title="" type="password" />
+        </div>
+         </div>
+        <div class="form-group">
+            <div class="input-group-prepend">
+			<span class="input-group-text"><i class="fas fa-user-secret"></i></span>
+        <label class="control-label" for="id_name"></label>
+        <input class="form-control" id="id_name" maxlength="250" name="name" placeholder="Name" required="required" title="" type="text" />
+            </div>
+        </div>
+    <div class="form-group">
+        <div class="input-group-prepend">
+			<span class="input-group-text"><i class="fa fa-heart"></i></span>
+        <label class="control-label" for="id_age"></label>
+        <input class="form-control" id="id_age" name="age" placeholder="Age" required="required" title="" type="number" value="Age" />
+        </div>
+    </div>
+    <input type="Submit" class="btn btn-lg btn-success btn-block mt-4"  value="Submit">
     </form>
   </div>
 </div>
 </div>
+</section>
 {% endif %}
 {% endblock %}

@@ -19,11 +19,14 @@ class Register(models.Model):
         return self.user.username
 
 class Post(models.Model):
-    author=models.ForeignKey('auth.User')
+    author=models.ForeignKey(User,on_delete=models.CASCADE)
     topic=models.CharField(max_length=300)
     text=models.TextField()
     create_date=models.DateTimeField(default=timezone.now)
     publish_date=models.DateTimeField(blank=True,null=True)
+
+    def __str__(self):
+        return self.author.username
 
     def publishing(self):
         self.publish_date=timezone.now()
@@ -32,8 +35,8 @@ class Post(models.Model):
     def comments_approve(self):
         return self.comments.filter(approved_comment=True)
 
-    def __str__(self):
-        return self.topic
+  #  def __str__(self):
+   #     return self.topic
 
     def get_absolute_url(self):
         return reverse("post_detail",kwargs={'pk':self.pk})

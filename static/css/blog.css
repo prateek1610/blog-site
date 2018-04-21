@@ -1,0 +1,60 @@
+/* Background Color Setting
+--------------------------------------------------*/
+
+body{
+	background: rgb(34,193,195);
+    background: linear-gradient(98deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+	background-repeat: none;
+	background-position: center;
+	background-size: cover;
+}
+
+/* FORM CSS
+--------------------------------------------------*/
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+/* LOGIN SECTION SETUP
+--------------------------------------------------*/
+
+section{
+	margin-top: 6rem;
+	padding: 2rem;
+}
+
+section .mycontainer{
+	padding: 2rem;
+	margin: 0 auto 0 auto;
+	width: 50%;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+}
+

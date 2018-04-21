@@ -18,12 +18,12 @@ class RegisterForm(forms.ModelForm):
     class Meta():
         model=Register
         fields=('name','age')
-
+        
 
 class PostForm(forms.ModelForm):
     class Meta():
         model=Post
-        fields=('author','topic','text')
+        fields=('topic','text')
 
         widgets={
             'topic':forms.TextInput(attrs={'class':'textinputclass'}),

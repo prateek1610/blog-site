@@ -24,11 +24,16 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model=Post
 
+
 class CreatePostView(CreateView,LoginRequiredMixin):
     login_url='/login/'
     redirect_field_name='blog/post_detail.html'
     form_class=PostForm
     model=Post
+
+    def form_valid(self, form):
+        form.instance.author_id = self.request.user.id
+        return super().form_valid(form)
 
 class DraftListView(LoginRequiredMixin,ListView):
     login_url='/login/'

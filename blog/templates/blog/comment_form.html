@@ -2,13 +2,23 @@
 {% block content %}
 <h1>New Comment</h1>
 <div class="container">
+<div class="jumbotron">
 	<form class="post-form" method="post">
 	{% csrf_token %}
 	{{ form.as_p }}
-	<button type="submit" class="save btn btn-default">Post Comment</button>
+	<button style="text-transform: uppercase;
+  outline: 0;
+  background: #283242;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;" type="submit" class="save btn btn-default">Post Comment</button>
 </form>
 <script>
 	var editor=new MediumEditor('.editable');
 </script>
+</div>
 </div>
 {% endblock %}

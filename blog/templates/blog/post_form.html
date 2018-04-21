@@ -1,16 +1,20 @@
 {% extends "blog/base.html" %}
 {% block content %}
-
+{% load bootstrap3 %}
+    <section>
+<div class="container">
+<div class="jumbotron">
 <form  class="post-form" method="POST">
 	{% csrf_token %}
-	{{ form.as_p  }}
+    {{ form.as_p  }}
 
-	<button type="submit" class ='save btn btn-default'>Save</button>
+	<button type="submit" class ='btn btn-lg btn-success'>Save</button>
 
 </form>
-
+</div>
+</div>
+    </section>
 <script>
 	var editor=new MediumEditor('.editabel');</script>
 
-</script>
 {% endblock %}
